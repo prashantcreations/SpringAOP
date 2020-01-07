@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+<!-- enable aspectj-autoproxy at runtime  -->
+<aop:aspectj-autoproxy/>
+
+	<bean name="employee" class="com.journaldev.spring.model.Employee">
+		<property name="name" value="Dummy Name"></property>
+	</bean>
+	
+	<bean name="employeeService" class="com.journaldev.spring.service.EmployeeService">
+		<property name="employee" ref="employee"></property>
+	</bean>
+	
+	
+<bean name="myImplimantation" class="com.journaldev.spring.aspect.MyImplimantation"></bean>	
+<!-- 	<bean name="employeeAfterAspect" class="com.journaldev.spring.aspect.EmployeeAfterAspect"></bean>
+	<bean name="employeeAnnotationAspect" class="com.journaldev.spring.aspect.EmployeeAnnotationAspect"></bean>
+	<bean name="employeeAroundAspect" class="com.journaldev.spring.aspect.EmployeeAroundAspect"></bean>
+ 	<bean name="employeeAspect" class="com.journaldev.spring.aspect.EmployeeAspect"></bean>
+ 	<bean name="employeeAspectJoinPoint" class="com.journaldev.spring.aspect.EmployeeAspectJoinPoint"></bean>
+	<bean name="employeeAspectPointcut" class="com.journaldev.spring.aspect.EmployeeAspectPointcut"></bean>
+ -->	
+	
+	
+<!-- 	<bean name="employeeXMLConfigAspect" class="com.journaldev.spring.aspect.EmployeeXMLConfigAspect"></bean>
+ -->	
+	<!-- using configuration can implement the Aspect -->
+<!-- 	
+	<aop:config>
+		<aop:aspect ref="employeeXMLConfigAspect" id="employeeXMLConfigAspectID">
+			<aop:pointcut expression="execution(* com.journaldev.spring.model.Employee.getName())" id="getNamePointcut"/>			
+			<aop:around method="employeeAroundAdvice" pointcut-ref="getNamePointcut" arg-names="proceedingJoinPoint"/>
+		</aop:aspect>
+	</aop:config>
+ -->
+</beans>
