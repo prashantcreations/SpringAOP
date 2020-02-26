@@ -1,9 +1,14 @@
 package com.journaldev.spring.aspect;
 
 import org.aspectj.lang.JoinPoint;
+
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
+
+// join point :- is a point wherer advice will execute 
+// advice : method after ,before @afterretuen
+// point cut : its out expression
 
 @Aspect
 public class EmployeeAfterAspect {
